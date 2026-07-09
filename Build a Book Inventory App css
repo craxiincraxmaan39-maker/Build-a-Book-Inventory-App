@@ -1,0 +1,45 @@
+/* Global Span Display */
+span {
+    display: inline-block;
+}
+
+/* Row attribute selectors for gradients */
+tr[class="read"] { background-image: linear-gradient(to right, #90EE90, white); }
+tr[class="to-read"] { background-image: linear-gradient(to right, #FF7F7F, white); }
+tr[class="in-progress"] { background-image: linear-gradient(to right, #FFD580, white); }
+
+/* Status styling based on parent row class */
+tr[class="to-read"] span[class="status"] { border: 1px solid black; background-image: linear-gradient(red, pink); }
+tr[class="read"] span[class="status"] { border: 1px solid black; background-image: linear-gradient(green, lightgreen); }
+tr[class="in-progress"] span[class="status"] { border: 1px solid black; background-image: linear-gradient(orange, yellow); }
+
+/* Targeted height/width/padding for status and rate spans */
+span[class="status"], span[class^="rate"] {
+    height: 20px;
+    width: 80px;
+    padding: 5px;
+}
+
+/* Children of rate spans */
+span[class^="rate"] > span {
+    border: 1px solid #333;
+    border-radius: 50%;
+    margin: 2px;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+}
+
+/* Rating logic: using tilde attribute selector [class~="word"] */
+span[class~="one"] > span:first-child { 
+    background-image: linear-gradient(gold, orange); 
+}
+
+span[class~="two"] > span:first-child,
+span[class~="two"] > span:nth-child(2) { 
+    background-image: linear-gradient(gold, orange); 
+}
+
+span[class~="three"] > span { 
+    background-image: linear-gradient(gold, orange); 
+}
